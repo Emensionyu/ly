@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>抛物线运动</title>
+    <style> 
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .ball{
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background-color: green;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    </style>
+</head>
+<body>
+    <script>
+        //抛物线的开始点坐标 结速点坐标
+        let Xstart=0,Ystart=0,Xend=1000,Yend=1000;
+        let Time=520;//运行时间
+        let Xspeed=(Xend-Xstart)/Time;//水平方向上的速度 left有戏
+        let Yspeed=(Yend-Ystart)/Time;//垂直方向上的速度 top有戏
+        let A = 2*(Yend-Ystart)/(Time*Time);//加速度的运算公式
+        //js 动态创建元素
+        let ball = document.createElement('div');
+        ball.className = 'ball';
+        document.body.appendChild(ball);
+        ball.style.top=Ystart+'px';
+        ball.style.left=Xstart+'px';
+
+        let nowX=Xstart;//当前X
+        let nowY=Ystart;//当前Y
+        let loop=0;
+
+        // 在函数内部再调用函数自身
+        let move = () =>{
+            requestAnimationFrame(() => {
+            console.log('aa');
+            nowX += Xspeed;/*移动了！*/
+            // nowY += Yspeed;
+            nowY += A*loop;
+            ball.style.top=nowY+'px';
+            ball.style.left=nowX+'px';
+            loop++;
+            move();
+        })
+        }
+        move();
+    </script>
+</body>
+</html>

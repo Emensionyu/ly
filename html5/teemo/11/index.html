@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no"  >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alloy Finger</title>
+    <style>
+    /* position 用于窗口，不动的。
+    -webkit-user-select:none 防止复制粘贴不必要麻烦
+    什么时候需要？ */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    bottom: 0;
+    background-color: #cccccc;
+    text-align: center;
+    font: 14px / 1.5 "Microsoft Yahei" sans-serif;
+  }
+  .ribbon {
+    top: 3.2em;
+    right: -3.7em;
+    color: #ffffff;
+    display: block;
+    padding: 0.6em 3.5em;
+    position: fixed;
+    text-align: center;
+    text-decoration: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: green;
+    z-index: 10000;
+    transform: rotate(45deg);/*绕中心旋转*/
+  }
+  .title{
+      height: 30px;
+      color: #333333;
+      font-size: 20px;
+      line-height: 30;
+  }
+  .imgBox{
+      margin-bottom: 10px;
+      border-bottom: 1 solid #333333;
+
+  }
+  .example img{
+      width: 160px;
+
+  }
+    </style>
+</head>
+<body>
+    <a href="https://github.com/AlloyTeam/AlloyFinger" 
+    class="ribbon">Fork me on Github</a> 
+      
+    <!-- pinch 手势 -->
+    <div class="example">
+            <div class="title">pinch</div>
+            <div class="imgBox">
+              <img src="https://alloyteam.github.io/AlloyFinger/asset/test.png" alt="" id="pinchImg">
+            </div>
+          </div>
+   <script src="https://alloyteam.github.io/AlloyFinger/asset/transform.js"></script>
+   <script src="https://alloyteam.github.io/AlloyFinger/alloy_finger.js"></script>
+   <script src="https://alloyteam.github.io/AlloyFinger/asset/to.js"></script>
+    <script>
+    const pinchImg=document.getElementById('pinchImg');
+    Transform(pinchImg);//变形的图片 接下来等比例放小
+    let initScale=1;
+    new AlloyFinger(pinchImg,{
+        pinch:function(evt){
+            pinchImg,scaleX=pinchImg.scaleY=initScale*evt.zoom;
+        },
+        multipointStart:function(){
+            initStart=pinchImg.scaleX;
+        }
+    })
+    </script>
+</body>
+</html>
