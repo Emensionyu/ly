@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+        }
+        html, body{
+            height: 100%;
+        }
+        .page{
+            height: 100%;
+        }
+        .flex-cont{
+            display: flex; /* 声明为弹性布局 */
+        }
+        .flex-ver{
+            flex-direction: column;  /*垂直排列 */
+            width: 100%;
+            height: 100%;
+        }
+        .flex-item{
+            flex:1;
+        }
+        .nav-box,.btn-box{
+        height: 45px;  /*44+1*/
+        text-align: center;
+        background: green;
+        line-height: 45px;/*行高实现居中效果 弹性布局+垂直+行高*/
+        }
+        .cont-box{
+        width: 100%;
+        word-break: break-all; /* 自动换行*/
+        overflow-x: hidden; /*清理溢出，自内容超出，自动隐藏 剪裁内容溢出的上下边缘，不提供滚动*/
+        overflow-y: scroll;  /*建材内容，提供滚动机制。上下滚动-*/
+        -webkit-overflow-scrolling: touch;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="flex-cont flex-ver">
+            <div class="nav-box">title</div>
+            <div class="flex-item cont-box">
+                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs
+                 1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs                1154545454121212121215454121545465641564646484541545153132132
+                 2dsjkshdcbsdbhmhhdkjs
+                <!-- /*文字默认16像素*/ -->
+            </div>
+            <div class="btn-box">
+                <button class="f-btn">btn</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- 88px 44物理像素  苹果手机头部 -->
+<!-- 弹性布局 flex = 1，flex-flow 浮动 -->
