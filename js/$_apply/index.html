@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script> -->
+    <!-- <script>
+        //生命周期函数 window.onload
+        //阻塞型的 尽量放尾部，亲万不可放link标签前
+            const eleUsername = document.querySelector('username');
+            console.log(eleUsername);
+    </script> -->
+<!--   <script>
+        // domReady 比window.onload早一些  （腾讯：现代前端技术解析 这本书可以看看）
+     $(function(){
+        const eleUsername = document.querySelector('.username');
+        console.log(eleUsername);
+     }) 
+    </script>
+    -->
+    <!-- <script>
+    document.addEventListener('DOMContentLoaded',function(){
+        console.log('domcontentloaded');
+    });
+    window.onload = function(){
+        console.log('load');
+    } 
+    </script> -->
+    <!-- <script>
+    $(function(){
+        // $('.username').html('颖宝');
+        // getJSON 获取数据 用live-server 自动变成一个网页，可以读取 ' /dream.json '
+        $.getJSON('/dream.json',function(data){
+            console.log(data);
+            $('.username').html(data.username);
+            $('.motto').html(data.motto);
+        })
+    });
+    </script> -->
+</head>
+<body>
+    <div class="box">
+        <div class="username"></div>
+        <div class="motto"></div>
+    </div> 
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded',function(){
+            // console.log('fdf');
+            const eleUsername = document.querySelector('.username');
+            const eleMotto = document.querySelector('.motto');
+            let xhr = null; //异步js 主动拉取的核心对象 Ajax    //实例化一个对象 
+                //    typeof null 的类型返回值 Object
+                // xhr 有一个兼容性问题            
+                // 浏览器嗅探
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{
+                //老old browser
+                xhr = new ActiveXObject('Microsoft.XMLHttp');
+            }
+                //从页面打开一个去url .json资源 ，后端数据服务（以json格式传递） 的通道 
+                //   url请求方式   open主动拉
+                xhr.open('get','/dream.json',true);  //打开请求
+                xhr.send();   
+                //on 事件的监听   对方要响应  传输中  已经准备好的几个状态   
+                // status == 200 表示成功
+                xhr.onreadystatechange = function(){
+                    console.log(xhr.readyState);
+                    if(xhr.readyState === 4 && xhr.status ===200){
+                        console.log(typeof xhr.responseText);
+                        const dream = JSON.parse(xhr.responseText);
+                        console.log(dream);
+                        eleUsername.innerHTML = dream.username;
+                        eleMotto.innerHTML = dream.motto;
+                        }
+                     }
+                 });
+
+    </script>
+   
+    
+    
+    
+</body>
+</html>
