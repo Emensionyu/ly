@@ -1,0 +1,22 @@
+
+@import "./weui-btn_global"
+@import "./weui-btn_primary"
+
+
+button,input 
+    &.weui-btn
+        width 100%
+        border-width 0
+        outline 0  //当你点击的时候有框框
+        -webkit-appearance none
+        &.focus
+            outline 0
+    &.weui-btn_inline,&.weui-btn_mini
+        width auto //自动填充
+    &.weui-btn_plain-primary,&.weui-btn_plain-default
+        border-width 1px
+        background-color transparent //背景颜色透明
+        
+
+
+
