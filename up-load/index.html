@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文件上传</title>
+  <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    /* 拖拽区域  领空*/
+    .list-group{
+        border:2px dashed #ccc;
+        min-height: 100px; /*占据一个位子*/
+    }
+    </style>
+</head>
+<body>
+    <header id-="header" class='page-header'>
+        <div class="container">
+            <h1>文件列表</h1>
+            <h5>filelist</h5>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <ul class="list-group row clearfix"></ul>
+            <form name="upload">
+                <a href="javascript:void(0);" class="btn btn-primary" id="selectbtn">上传文件</a>
+                <input type="file" name="fileselect" style="display:none" />
+            </form>
+            <div id="eventStatus"></div>
+    </div>
+  
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+  $(function() {
+    const fileselect = document.forms['upload']['fileselect'];
+    const selectBtn = document.getElementById('selectbtn');
+    const ListGroup = document.querySelector('.list-group');
+    // change **
+    fileselect.addEventListener('change',
+    displayFileInfo,false)
+    selectBtn.addEventListener('click', function() {
+      fileselect.click();
+    })
+    ListGroup.innerHTML= '<p class="hint"> 拖拽文件 </p>';
+    ListGroup.addEventListener('dragover',onDragOver,false);
+    ListGroup.addEventListener('drop',displayFileInfo,false);
+    function onDragOver(event){
+        event.preventDefault();
+        event.stopPropagation();
+        $('.list-group p').html('放开上传');
+
+    }
+    function fixeFloat(f){
+        return parseFloat(f/(1024*1024)).toFixed(2);
+    }
+    function displayFileInfo(event){
+        event.preventDefault();
+        // 阻止浏览器的默认行为，现在我要自行解决一些事件的打开方式
+        event.stopPropagation();
+        //  不要向外触发其他事件
+        ListGroup.innerHTML='';
+        // 对普通上传inputfiles 和拖拽式上传都统一了
+        const files = event.target.files 
+        || event.dataTransfer.files; 
+         /*dataTransfer*/
+        // form 里面的input 元素可以实现这个event.target.files 功能获取得到文件的API
+        // console.log(files);
+        for(let file of files){
+            let li = document.createElement('li'),
+            img = document.createElement('img'),
+            // 前端 文件到达后端之前先看到图片 
+            // url = ? 文件上传到服务器才有url
+            // 前端url 基于浏览器可以临时看到的url
+            url = window.URL.createObjectURL(file);
+            thumbnailContainer = document.createElement('li');
+            progress = document.createElement('div');
+            progressBar = document.createElement('div');
+            progressBar.classList.add('progress-bar');
+            progress.classList.add('progress','progress-striped','active');
+            progress.appendChild(progressBar);
+
+            thumbnailContainer.classList.add('col-md-3');
+            img.src = url;
+            img.onload = function(){
+                window.URL.revokeObjectURL(url);
+            }
+            img.classList.add('thumbnail');
+            thumbnailContainer.appendChild(img);
+            ListGroup.appendChild(thumbnailContainer);
+            ListGroup.classList.add('list-group-item');
+            let content = document.createTextNode(
+                file.name + ' ' + 
+                file.type + ' ' +
+                file.size + ' ' +
+                file.lastModifiedDate.toLocaleDateString() +
+                ' ' + file.lastModifiedDate.toLocaleTimeString()
+            );
+            thumbnailContainer.appendChild(content);
+            const reader = new FileReader();
+            reader.readAsBinaryString(file);
+            reader.onloadstart = function() {
+                console.log(progress);
+                document.getElementById('eventStatus').appendChild(progress);
+            }
+            reader.onprogress = function(event){
+                let progressStatus = Math.round(event.loaded/event.total + 100)+'%' 
+                console.log(progressStatus);
+                progressBar.style.width = progressStatus
+            }
+                    
+                // console.log(url);
+
+
+        }
+
+    }
+  })
+  </script>
+</body>
+</html>
