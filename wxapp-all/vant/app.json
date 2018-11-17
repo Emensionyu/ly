@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/search/index",
+    "pages/index/index",
+    "pages/logs/logs"
+    
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ccc",
+    "navigationBarTitleText": "vant-Weapp",
+    "navigationBarTextStyle": "black"
+  }
+}

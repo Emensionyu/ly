@@ -1,0 +1,2 @@
+<view wx:for="{{book_list}}" wx:ky="index">
+</view>

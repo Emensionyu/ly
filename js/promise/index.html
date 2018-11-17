@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js 是单线程,事件监听，Event Loop（事件的循环检测）->因为js主线程执行完就空闲了，然后就开始去轮流询问有没有什么定时器，监听函数等等。
+        // 一轮时间也就是100微秒到10毫秒之间，等到了定时器的事件时间，就从event loop里面挂载的setTimeOut函数拿出来执行。 
+        // setTimeout，该函数可以被挂载在Event Loop 事件循环中
+        // addeventListener 1001
+
+
+    /*让下面的函数异步变成同步实行*/
+     setTimeout( function(){
+         console.log('aaa');
+        // 该函数被挂载到Event Loop 因为定时器函数被延迟执行
+    },2000)    
+     console.log('bbbbb');
+
+
+     /*没实现*/
+    //  async function foo() {
+    //     await setTimeout(function () {
+    //         console.log('aaaa');
+    //         },1000);
+    //          await console.log('bbbb');
+    //     }
+    //     foo();
+
+
+    /*老师的想法*/
+    const ly = async()=>{
+        let result = await new Promise((resolve,reject)=>{
+            setTimeout(function(){
+                console.log('我是老大我说了算');
+                resolve(' do success');
+            },2000)
+        });
+        console.log(result );
+        console.log('我是老二我说了算');
+    }
+    ly();
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 期许 诺言 
+        const p = new Promise((resolve,reject)=>{
+            // 耗时操作：ajax 定时器  数据库 上传图片 下载服务？ 一般不会超过10s 小程序里有一个时间过期服务
+
+            setTimeout(()=>{
+                // 实现
+                console.log(000);
+                resolve('yes'); //任务做完后resolve成功
+                // reject('no'); //失败
+
+            },1000)
+        })    
+        // promise+.then 实现异步的同步执行  只要resolve，.then()就会执行
+        p
+        .then(data=>{
+            console.log(data);
+            console.log('111')
+        } )
+        .catch(err=>{
+            console.error(err);
+        })
+        // promise 诞生es6时代。await 诞生es7时代
+    </script>
+    
+</body>
+</html>

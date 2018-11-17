@@ -1,0 +1,20 @@
+{
+  "name": "",
+  "version": "0.1.0",
+  "url": "https://github.cpm/Hcy2ly",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:js": "eslint *.js",
+    "lint:css": "stylelint *.less",         
+    "test": "npm-run-all --parallel lint:*"
+  },
+  "keywords": [],
+  "author": "Hcy2ly <1757256226@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^5.7.0",
+    "stylelint": "^9.6.0",
+    "stylelint-config-standard": "^18.2.0"
+  }
+}
