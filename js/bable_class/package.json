@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0"
+  },
+  "name": "bable_class",
+  "version": "1.0.0",
+  "main": "demo.js",
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "1. babel class 编译\r  .babel 不可少 presets数组 env\r  - js 面向对象是原型式的"
+}
