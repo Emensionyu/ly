@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jay Chou 周杰伦专场</title>
+    <style>
+    * {margin: 0; padding: 0;}
+    .wrap {
+        width: 640px;
+        margin: 10px auto;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+    #canvas {
+        position: absolute;
+    }
+    .wrap h1 {
+        color: #00a1f4;
+    }
+    .wrap input {
+        vertical-align: middle;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>听妈妈的话 - 周杰伦</h1>
+        <div class="main">
+            <canvas id="canvas"></canvas>
+            <video src="mv.mp4" id="video" controls width="720" height="480"></video>
+        </div>
+        <div class="content">
+            <input type="text" id="text" />
+            <input type="button" id="btn" value="发弹幕" />
+            <input type="color" id="color" />
+            <input type="range" id="range" max="40" min="20" />
+        </div>
+    </div>
+    <script src="./bundle.js"> </script>
+    
+<!-- <script src="./src/canvas_barrage.js"></script>
+<script>
+    (function() { //立即执行函数
+        /*$text  是php写法    const $text = ?*/
+        import CanvasBarrage from "./src/canvas_barrage.js";
+        let data =[
+            {
+                value:"周杰伦的听妈妈的话，单曲循环",
+                time:5,
+                color:'red',
+                speed:1,
+                fontsize:22
+            },{
+                value:"想快快长大，才能保护她",
+                time:10
+            },{
+                value:"听妈妈的话，晚点恋爱吧",
+                time:15
+            }
+        ]
+    const btn = document.getElementById("btn");
+    btn.addEventListener('click',()=> {
+        let value = textInput.value;
+        send(value);
+    })
+    // canvas 画布
+    // 网页引入游戏 3D VR AR WegGL
+    const canvas = document.getElementById('canvas');
+    const video = document.getElementById('video');
+    let canvasBarrage = new CanvasBarrage(canvas,video,{data});
+    
+
+    const textInput = document.getElementById("text");
+    textInput.addEventListener('keyup',function (e) {//=>函数不适用于要在内部得到this指向的数
+        let key = e.keyCode;
+        let value = this.value;
+        // if(key === 13) { 
+        //     send();
+        // }当面对if里只有少量代码，可简短代码成下面这样的形式。
+        // key === 13 && send(); 代码风格1
+        key === 13 && send(value); //代码风格3
+
+    })
+    function send(value) {
+        if(!value) return ;//代码风格2
+        console.log(value);
+    }
+})() -->
+
+    </script>
+</body>
+</html>
