@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lodash chain</title>
+</head>
+<body>
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.11/lodash.core.min.js"></script> 
+    <script>
+        // _ 是lodash命名空间，就是一个类
+        // chain 是_的静态方法 
+        var _ = function(obj) {
+            if(!(this instanceof _))//如果不是实例
+            //构造函数也可以有返回值
+            return new _(obj);//返回了一个实例
+            
+            this._wrapped = obj;//在obj上挂载了一个属性wrapped
+        }
+        function chainResult(instance,obj) {
+            // ? 如何判断它是链式调用？
+            return instance._chain?_.chain(obj):obj;
+        }
+        _.prototype = {
+            push: function(num) {
+                this._wrapped.push(num);
+                return chainResult(this, this._wrapped);
+            },
+            shift: function() {
+                this._wrapped.shift();
+                return chainResult(this, this._wrapped);
+            },
+            value:function() {
+                return this._wrapped;
+            }
+        }
+        
+        _.chain = function(obj) {
+            var instance = _(obj);
+            instance._chain = true; //加一个开关来证明为链式调用，该行为在实例上instance动态添加一个_(私有)属性=true
+            // 直接调用构造函数，不 new 
+            return instance;
+            // return new _(obj);/* *** */
+        }
+
+        // _ 是lodash 命名空间
+        // chain 方法是给我们链式调用的能力
+        // filter就是在前面选择的项上再进行过滤，得到剩余的满足条件项 
+        // const arr = _.chain([1,2,3,4])
+        // .filter(function(num) {
+        //     return num%2 === 0
+        //     /*？？？返回一个对象*/
+        // })
+        // .map(function(num) {
+        //     return num*num
+        // })
+        // .value();
+        // console.log(arr);
+          
+        const arr = _.chain([1,2,3,4])
+            .push(5)
+            .shift()
+            .value();
+        console.log(arr);
+    
+  </script>
+</body>
+</html>
+
+    </script>
+</body>
+</html>

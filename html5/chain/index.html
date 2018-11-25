@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>链式调用</title>
+    <style>
+    div{
+        display: none;
+        height: 200px;
+        background: green;
+
+    }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+    //     $(function() {
+    //         // console.log($('div')[0]);
+    //         console.log($('div')
+    //         .eq(0)
+    //         .css('width','200px')
+    //         .fadeIn(3000)
+    //         );
+    //     })
+    // 类
+    function JQuery(selector) {
+        // selector?
+        this.elements = document.querySelectorAll(selector);
+    }
+    JQuery.prototype = {
+        eq:function(index) {
+            //返回第几个元素
+            // return index < this.elements.length?this.elements[index]:null;
+            this.elements = [this.elements[index]];
+            return this;
+        },
+        css:function(prop,value) {
+            // 遍历每一个值？有三种方法。
+            this.elements.forEach(function(el) {
+                // el动态设置属性 json里面当是变量时用[]， 不是可以直接el.style.width = value
+                el.style[prop] = value;
+            });
+            return this;
+        },
+        show:function() {
+            // this.elements.forEach(function(element) {
+            //     element.style.display = "block";
+            // });
+            this.css('display', 'block');
+            return this;
+
+        },
+    }
+    // 挂再window抢占命名空间
+        window.$ = function(selector) {
+            // 返回
+            return new JQuery(selector);
+        }
+
+       console.log( $('div')
+       .eq(0)
+       .css('width','300px')
+       .show());
+        // $('div') => JQuery new?
+        // .eq(0)
+        // .css('width','320')
+
+    </script>
+</body>
+</html>
