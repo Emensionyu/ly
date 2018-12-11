@@ -1,0 +1,344 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    min-height: 100%;
+}
+body{
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.42857143;
+    color: #333333;
+    background-color: #fff;
+
+
+    /* position: absolute; */
+}
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    height: 300px;
+}
+.wrapper{
+    background-color: #dcf;
+    min-height: 100%;
+    position: static;
+    overflow: hidden;
+}
+.main-header{
+position: relative;
+height:100px;
+z-index:1030;
+display: block;
+box-sizing: border-box;
+}
+@media (max-width:767px){
+.main-header{
+    position: relative;
+    }
+.main-header .navbar-custom-menu .navbar-nav{
+        float: right;
+    }
+}
+
+@media(max-width:991px){
+.navbar-custom-menu>.navbar-nav>li>.dropdown-menu{
+    position: absolute;
+    right: 5%;
+    left: auto;
+    border: 1px solid #ddd;
+    background: #fff;
+    }   
+}
+.navbar-nav>li>.dropdown-menu{
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.dropdown-menu{
+    box-shadow: none;
+    border-color: #eee;
+    top: 100%;
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    margin: 2px 0;
+    min-width: 160px;
+    float: left;
+    z-index: 1000;
+    display: none;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    border-radius: 4px;
+}
+.navbar-nav{
+    margin: 7.5px 15px; /*上下外距位7.5px;左右外边距15px*/
+}
+@media (max-width:991px){
+.navbar-menu>.navbar-nav>li {
+    position: static;
+    /* static（静态定位）：默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。 */
+    float: left;
+    }
+}
+a.dropdown-toggle{
+    background: rgba(0,0,0,0.1);
+    color: #ccc;
+}
+i.fa{
+    display: inline-block;
+    font: normal normal normal .09333rem FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing:antialiased;
+    /* 对字体进行抗锯齿渲染可以使字体看起来会更清晰舒服。 */
+}
+.main-header .navbar .nav>li>a>.label{
+    position: absolute;
+    top: 9px;
+    right: 7px;
+    text-align: center;
+    font-size: 9px;
+    padding: 2px 3px;
+    line-height: 0.9;
+
+}
+.dropdown{
+    position: relative;
+    display: block;
+}
+.navbar-nav>li>a{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+}
+.caret{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+.label:empty{
+    display: none;
+}
+.label-success{
+    background-color: #00a65a !important;
+}
+.Yingcanbiaoji {
+    float: left;
+    background-color: #fff;
+    background-image: none;
+    padding: 15px 15px;
+    font-family: fontAwesome;
+    /* font Awesome 是一套专门为 Twitter Boostrap 设计的图标字体库。 */
+}
+a{
+    color: #3c8dbc;
+    /* text-decoration: none; */
+    background-color: #ddd;
+    text-decoration: underline;
+    cursor: pointer;/*指鼠标指针变成手*/
+    display: block;
+    clear:both;
+    white-space: nowrap;
+    font-weight: 400;
+    text-decoration: none;
+}
+a.logo{
+    line-height:50px;
+    text-align: center;
+    background-color: #abc; 
+}
+.logo img{
+    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
+}
+.logo span{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 300;
+    display: block;
+}
+.navbar{
+    background-color: #bdc;
+    margin: 0;
+}
+
+.main-header .logo .logo-mini {
+    display: none;
+}
+.logo-mini{
+    color:#9acd32;
+    
+}
+.detail .logo{
+    display: block;
+}
+ span.logo-lg {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ececfb;
+    display: block;
+}
+.navbar{
+    width: 100%;
+    float: none;
+}
+.navbar-static-top{
+    z-index: 1000;
+    border-width: 0 0 1px;
+}
+.main-header>.navbar{
+    /* -webkit-transition: margin-left .3s ease-in-out;效果过渡 */
+    margin-bottom: 0;
+    margin-left: 230px;
+    
+    min-height: 50px;
+    border: none;
+    border-radius: 0;
+    /* 向 div 元素添加圆角边框： */
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.row > div > div{
+    height: 100%;
+    background: green;
+}
+.row > div:nth-child(odd)>div{
+    background-color: yellow;
+}
+.all-event-list[class*=col-md]{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.row:after{
+    content:'';
+    display: block;
+    clear: both;
+}
+/*手机 一行2个盒子*/
+@media(max-width:767px){
+    .col-xs-1,
+    .col-xs-2,
+    .col-xs-3,
+    .col-xs-4,
+    .col-xs-5,
+    .col-xs-6,
+    .col-xs-7,
+    .col-xs-8,
+    .col-xs-9,
+    .col-xs-10,
+    .col-xs-11,
+    .col-xs-12{
+        float:left;
+    }
+    .col-xs-6{
+        width: 50%;
+    }
+}
+
+/*ipad 竖着*/
+@media(min-width:768px){
+    .col-sm-1,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12{
+        float:left;
+    }
+    .col-sm-4{
+        width: 33.33333%;
+    }
+}
+
+/* tablet iphones */
+@media(min-width:992px){
+    .container{
+        width: 970px;
+        background: blue;
+        opacity: 0.5;   /*半透明*/
+    }
+    .col-md-1,.col-md-2,.col-md-3,
+    .col-md-4,.col-md-5,.col-md-6,
+    .col-md-7,.col-md-8,.col-md-9,
+    .col-md-10,.col-md-11,.col-md-12{
+        float:left; /*用浮动离开文档流*/
+    
+    }
+
+    .col-md-3{
+        width: 25%;  /* 没限制一个宽度，颜色叠加*/
+    }
+}
+/* big PC  */
+@media(min-width:1200px){
+    .container{
+        /* width: 1140px; 盒子宽度 */
+        height: 100%;
+        width: 100%;
+        background: black;
+    }
+    div{
+        height: 100%;
+        width: 100%;
+    }
+}  
+
+.click{
+    /* font-style: italic;	*/  /*浏览器会显示一个斜体的字体样式。 */
+    text-decoration: underline;
+    margin-left: 10px;
+    text-align: center;
+}
+.one{
+    display: flex;
+    padding-top:20px; 
+    flex-direction:column;/*竖着排列*/
+    align-items: center; /*水平居中*/
+    width: 100%;
+    height: 50%; 
+    border: 1px solid #fff;
+}
+
+/* //图片盒子的大小 */
+.click_div{
+    height:200px;
+    width: 80%;
+}
+.click_div img{
+    /* margin-left:5%; */
+    width: 100%;
+    height: 95%;
+    display: block;
+    background-size: contain;
+}

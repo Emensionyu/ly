@@ -1,0 +1,44 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;        
+    font-family:sans-serif;
+    }
+html,body{
+        height: 100%; 
+        width: 100%;  
+    }
+    
+.wrapper{
+    height: 100%;
+}
+.detail{
+    background: #eaa;
+    color:black;
+    border-bottom: 0 solid transparent;
+    width: 100%;
+    float: none;
+}
+.logo{
+    font-size: 18px;
+    width: 150px;
+    height: 100px;
+}
+.main-header{
+    display: block;
+    position: relative;
+    max-height: 100%;
+    max-width: 100%;
+    background-color:#eaa;
+}
+a{
+    color: green;
+    text-decoration: none;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+img.logo{
+    width: 20px;
+    height: 20px;
+}

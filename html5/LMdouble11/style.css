@@ -11,17 +11,7 @@ html,body{
 .html_content{
     height: 100%;
 }
-.item-section{
-    background-color: red;
-    position: relative;
-    min-height: 100%;
-    /*//至少高度为父元素的100% */
 
-}
-.item-section_header img{
-    width: 10rem;
-
-}
 ul li{
     list-style: none;
 

@@ -1,0 +1,112 @@
+/* 10rem 宽度 手机宽度均10rem 很好的提供了一个栅格系统 */
+/* 1rem= 1/10 宽度 */
+*{
+    margin: 0;
+    padding: 0;   
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    /* flex:1; */
+}
+.html_content,.item-section{
+    height: 100%;
+    /* margin-bottom: 1rpx; */
+}
+.item-section_header_image
+{
+    list-style: none;
+    width:100%;
+    overflow: hidden;
+    position: relative;
+}
+.item-section{
+    background-color: black;
+    position: relative;
+    min-height:100%;
+}
+.item-section_header img{
+    width: 100%;
+    opacity: 0.71;
+}
+
+/* .item_content img{
+    width: 100%;
+} */
+
+ul ,li{
+    list-style: none;
+    
+}
+.item-section ul{
+    padding: 0.133333rem;
+}
+        
+.flag{
+    position: relative;
+    display: table;
+    width: 100%;
+    margin-bottom: 1px ;
+    background:black;
+}
+
+.flag .flag-item{
+    display: table-cell;
+    padding: 0.16rem 0;
+    vertical-align: top;
+    background: #ffffff;
+}
+.flag .flag-item.figure{
+    width: 2.34667rem;
+    height: 2.34667rem;
+}
+.flag .flag-item.figure img{
+    max-width: 100%;
+}
+.flag .flag-price{
+    padding: .15rem 0 .2rem;
+    color: #e07659;
+}
+.flag .flag-price span{
+    display: inline-block;/**/
+    vertical-align: middle;/**/
+    border-radius: 0.026667rem;
+    border-top-left-radius: 0.026667rem;
+    border-top-right-radius: 0.026667rem;
+    border-bottom-left-radius: 0.026667rem;
+    border-bottom-right-radius: 0.026667rem;
+    padding: 0.0266667rem .08rem .013333rem;
+    padding-top: 0.026667rem;
+    padding-right: 0.08rem;
+    padding-bottom: 0.0133333rem;
+    padding-left: 0.08rem;
+    color: #fff;
+    font-weight: 700;/**/
+    margin-left: .066668rem;
+    font-size: 11px;
+    background-color: #ee0a3b;
+}
+.flag-type{
+    color: #ff3600;
+}
+.flag .flag-btn{
+    position: absolute;
+    width: 2.133333rem;
+    height: 0.64rem;
+    line-height: 0.64rem;
+    background-color: #ee0a3b;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    bottom: .133333rem;
+    right: .2rem;
+    border-radius: .026667rem;
+    border-top-left-radius: 0.026667rem;
+    border-top-right-radius: 0.026667rem;
+    border-bottom-left-radius: 0.026667rem;
+    border-bottom-right-radius: 0.026667rem;
+}
+
+

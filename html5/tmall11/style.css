@@ -25,6 +25,9 @@ ul ,li{
     list-style: none;
     
 }
+.Flags{
+    background-color: red;
+}
 .item-section ul{
     padding: 0.133333rem;
 }
